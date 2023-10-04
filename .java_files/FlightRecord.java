@@ -82,14 +82,30 @@ abstract public class FlightRecord {
             }
         }
         public void set_flight_class(int id , String fclass)  {
+            FlightRecord tempObj = null;
+
             boolean valid = false;
             for(FlightRecord fr : flight) {
                 if(fr.get_flight_id() == (id)) {
                     fr.flight_class = fclass;
+                    tempObj = fr;
+                    fr = null;
                     valid = true;
                     break;
                 }
             }
+
+            FlightRecord newRec;
+            if(fclass.equals("VIP")) {
+                assert tempObj != null;
+                newRec = new VIP_Class(tempObj.flight_name , tempObj.flight_id , tempObj.capacity );}
+            if(fclass.equals("VVIP")) {
+                assert tempObj != null;
+                newRec = new VIP_Class(tempObj.flight_name , tempObj.flight_id , tempObj.capacity );}
+            if(fclass.equals("Public")) {
+                assert tempObj != null;
+                newRec = new VIP_Class(tempObj.flight_name , tempObj.flight_id , tempObj.capacity );}
+
             if(!valid) {
                 System.out.println("Enter a valid ID ! ");
             }
