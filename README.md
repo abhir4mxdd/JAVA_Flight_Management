@@ -8,4 +8,9 @@ Their only use is their constructors to assign members some data.
 
 FlightManager can enter data himself manually or I gave a random loop to add flights data for convinience of the dummy users.
 
+Update 15-10-2023 :
+Added new members departure and boarding times for advanced flight management
+Added methods to see and update times
+Added method to check delay
+
 
